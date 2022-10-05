@@ -10,4 +10,4 @@ elif posX < 0 and posY < 0:
 elif posX < 0 and posY > 0:
     print("segundo")
 else:
-    print()
+    print("")
