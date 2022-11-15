@@ -3,7 +3,6 @@ from repositories.book_repository import BookRepository
 from repositories.customer_repository import CustomerRepository
 from repositories.order_repository import OrderRepository
 
-
 customer_repository = CustomerRepository()
 order_repository = OrderRepository()
 book_repository = BookRepository()

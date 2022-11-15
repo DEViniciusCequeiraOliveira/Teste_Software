@@ -1,9 +1,7 @@
 
-
-from datetime import date
 from entities.book import Book
 from entities.customer import Customer
-
+from datetime import date
 
 class Order:
     def __init__(self, id: int, customer: Customer, date_order: date) -> None:

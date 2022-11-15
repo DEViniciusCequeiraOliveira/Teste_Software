@@ -1,4 +1,4 @@
-from entities.book import Book;
+from entities.book import Book
 
 def test_book():
     # Arrange

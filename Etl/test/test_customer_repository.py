@@ -1,5 +1,5 @@
+from repositories.customer_repository import CustomerRepository
 from entities.customer import Customer
-from repositories.customer_repository import CustomerRepository;
 
 
 def test_verif_if_customer_exists():

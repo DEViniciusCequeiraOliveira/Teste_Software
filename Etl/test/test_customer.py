@@ -1,6 +1,6 @@
 from entities.customer import Customer
 
-def test_customer(self):
+def test_customer():
     customer_fernando = Customer(1, "Fernando")
     customer_claudio = Customer(2, "Caludio")
 

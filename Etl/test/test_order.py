@@ -1,12 +1,9 @@
-from entities.order import Order
-from datetime import date
-from entities.customer import Customer
 from datetime import datetime
-from repositories.customer_repository import CustomerRepository
+from entities.order import Order
+from entities.customer import Customer
 from entities.book import Book
 
 
-    
 def test_order():
     #Arrange
     customer_um = Customer(1, "Ana Paula")

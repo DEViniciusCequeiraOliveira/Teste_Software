@@ -1,11 +1,5 @@
 from repositories.order_repository import OrderRepository;
 
-def testar_ordem_repositorio():
-
-
-    # Arrange
-
-    # Act
-    
-    # Assert
-    assert OrderRepository
+def test_order_repository():
+    order_repository = OrderRepository()
+    assert order_repository.list_orders == [] 

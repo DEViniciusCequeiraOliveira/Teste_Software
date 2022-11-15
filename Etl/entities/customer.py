@@ -1,6 +1,3 @@
-from repositories.customer_repository import CustomerRepository
-
-
 class Customer:
     def __init__(self, id: int, name: str) -> None:
         self.id = id
@@ -12,8 +9,3 @@ class Customer:
 
 
 
-
-
-
-
-        
