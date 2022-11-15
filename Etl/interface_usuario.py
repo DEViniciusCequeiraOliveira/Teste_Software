@@ -15,26 +15,22 @@ class InterfaceUsuario:
 
     def register_customer(self):
         id = int(input("Informe o código do cliente: "))
-        nome = input("Informe o nome do cliente: ")
-        customer = Customer(id, nome)
-        self.customer_repository.list_customers.append(customer)
-        print("Cliente cadastrado com sucesso!")
+        if not self.customer_repository.verif_if_customer_exists(id):
+            print("Cliente já cadastrado!!!")
+        else:
+            nome = input("Informe o nome do cliente: ")
+            customer = Customer(id, nome)
+            self.customer_repository.list_customers.append(customer)
+            print("Cliente cadastrado com sucesso!")
+          
 
+    #clente existe e se tem estoque 
     def sell(self):
-        id = int(input("Informe o código do pedido: "))
+        id = int(input("Informe o código do pedido: "))     
         customer_id = int(input("Informe o código do cliente: "))
         today = date.today()
-        if (not self.customer_repository.verif_if_customer_exists(customer_id)):
-            print("Cliente não existe!")
-            
-
         customer = self.customer_repository.get_customer(customer_id)
         book_id = int(input("Informe o código do livro: "))
-
-        if (not self.book_repository.verif_if_book_exists(book_id)):
-            print("Livro não existe!")
-            
-
         book = self.book_repository.get_book(book_id)
         order = Order(id, customer, today)
         order.purchased_book = book
