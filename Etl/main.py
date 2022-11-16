@@ -22,7 +22,7 @@ while True:
     if menu_option == 1:
         interface_usuario.register_customer()
     if menu_option == 2:
-       interface_usuario.sell()
+       print(interface_usuario.sell())
     if menu_option == 3:
         interface_usuario.output_usuario_order()
     if menu_option == 4:

@@ -9,7 +9,6 @@ class BookRepository:
         for book in self.list_books:
             if (book.id == book_id):
                 return True
-
         return False
 
 
@@ -17,7 +16,21 @@ class BookRepository:
         for book in self.list_books:
             if (book.id == book_id):
                 return book
-
         return Book(-1, "Book not found!", "", "", "", 0)
 
 
+    def down_stock(self, book_id : int):
+        book = self.get_book(book_id)
+        book.stock -= 1
+
+
+    def get_stock(self, book_id : int):
+        book = self.get_book(book_id)
+        return book.stock
+
+
+    def verif_if_book_cost_more_zero(self, book_id : int):
+        book = self.get_book(book_id)
+        if book.price > 0 :
+            return True
+        return False
