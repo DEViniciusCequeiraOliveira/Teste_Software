@@ -15,34 +15,42 @@ class InterfaceUsuario:
 
     def register_customer(self):
         id = int(input("Informe o código do cliente: "))
-        if not self.customer_repository.verif_if_customer_exists(id):
-            print("Cliente já cadastrado!!!")
-            return 
+        if self.customer_repository.verif_if_customer_exists(id):
+            return "Cliente já cadastrado!!!"
         
         nome = input("Informe o nome do cliente: ")
         customer = Customer(id, nome)
         self.customer_repository.list_customers.append(customer)
-        print("Cliente cadastrado com sucesso!")   
+        return "Cliente cadastrado com sucesso!"
 
-    def sell(self):
-        id = int(input("Informe o código do pedido: "))
+    def validate_sell(self, id, customer_id, book):
         if self.order_repository.verif_if_order_exists(id): 
             return "Pedido já existe"
               
-        customer_id = int(input("Informe o código do cliente: "))
-        if self.customer_repository.verif_if_customer_exists(customer_id):
-            return "Cliente já cadastrado"
+        if not self.customer_repository.verif_if_customer_exists(customer_id):
+            return "Cliente não cadastrado"
         
-        book_id = int(input("Informe o código do livro: "))
-        if self.book_repository.get_stock <= 0:
+        if (self.book_repository.get_stock(book.id)) <= 0:
             return "Livro sem estoque"
 
-        if not self.book_repository.verif_if_book_cost_more_zero(book_id):
+        if not self.book_repository.verif_if_book_cost_more_zero(book.id):
             return "Livro com preço invalido"
 
-        book = self.book_repository.get_book(book_id)
         if book.id == -1:
             return "Livro não cadastrado"
+        
+        return "Validado com sucesso!!!"       
+
+    def sell(self):
+        id = int(input("Informe o código do pedido: "),)  
+        customer_id = int(input("Informe o código do cliente: "),)
+        book_id = int(input("Informe o código do livro: "))
+        book = self.book_repository.get_book(book_id)
+
+        validate_sell_result = self.validate_sell(id,customer_id, book)
+        if validate_sell_result != "Validado com sucesso!!!":
+            print(validate_sell_result)
+            return "Erro durante a compra, tente novamente mais tarde"
 
         today = date.today()
         customer = self.customer_repository.get_customer(customer_id)
