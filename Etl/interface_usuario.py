@@ -23,8 +23,8 @@ class InterfaceUsuario:
         self.customer_repository.list_customers.append(customer)
         return "Cliente cadastrado com sucesso!"
 
-    def validate_sell(self, id, customer_id, book):
-        if self.order_repository.verif_if_order_exists(id): 
+    def validate_sell(self, order_id, customer_id, book):
+        if self.order_repository.verif_if_order_exists(order_id):
             return "Pedido já existe"
               
         if not self.customer_repository.verif_if_customer_exists(customer_id):
